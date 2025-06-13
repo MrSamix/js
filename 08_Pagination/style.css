@@ -1,0 +1,37 @@
+body{
+    background-color: rgba(196, 194, 194, 0.663);
+}
+.stackpanel {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.settings {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.settings > p {
+    align-self: center;
+}
+.settings > input {
+    width: 70px;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.container {
+    margin: 10px auto;
+}
+/* .row{
+    justify-content: center;
+} */
+.card {
+    /* margin: 10px; */
+    padding: 10px;
+}
+.pages>nav{
+    justify-self: center;
+}
