@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <form id="textForm">
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="bold"> Bold</label>
+                <label><input type="checkbox" id="underline"> Underline</label>
+                <label><input type="checkbox" id="italic"> Italics</label>
+            </div>
+            <div class="radio-group">
+                <label><input type="radio" name="alignment" value="left" checked> Left</label>
+                <label><input type="radio" name="alignment" value="right"> Right</label>
+                <label><input type="radio" name="alignment" value="justify"> Justify</label>
+            </div>
+            <textarea id="textInput" placeholder="Enter your text here"></textarea>
+            <button type="button" id="showTextButton">Show text</button>
+        </form>
+        <div id="result">
+            <h3>Result:</h3>
+            <div id="styledText"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
