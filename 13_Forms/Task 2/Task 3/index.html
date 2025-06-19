@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task 3</title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div>
+                <label for="firstname">Firstname:</label>
+                <input type="text" id="firstname" name="firstname">
+            </div>
+            <div>
+                <label for="lastname">Lastname:</label>
+                <input type="text" id="lastname" name="lastname">
+            </div>
+            <div id="birthdayDiv">
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+            <div id="gender">
+                <label for="gender">Gender:</label>
+                <input type="radio" name="radio" value="male">Male
+                <input type="radio" name="radio" value="female">Female
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value=""></option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Ukraine">Ukraine</option>
+                </select>
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <select name="city" id="city">
+                    <option value=""></option>
+                    <option value="New York">New York</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="London">London</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Kyiv">Kyiv</option>
+                </select>
+            </div>
+            <div id="skillsDiv">
+                <label for="skills">Skills:</label>
+                <input type="checkbox" name="skills" value="HTML">HTML
+                <input type="checkbox" name="skills" value="CSS">CSS
+                <input type="checkbox" name="skills" value="JS">JS
+                <input type="checkbox" name="skills" value="PHP">PHP
+                <input type="checkbox" name="skills" value="C++">C++
+                <input type="checkbox" name="skills" value="JAVA">JAVA
+                <input type="checkbox" name="skills" value="C#">C#
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="result">
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

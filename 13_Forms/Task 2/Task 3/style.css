@@ -1,0 +1,63 @@
+html{
+    background-color: #fbf2e9;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.container{
+    width: 523px;
+    margin: 10px auto;
+}
+label{
+    font-weight: bold;
+}
+input, select{
+    padding: 5px;
+}
+button, #skillsDiv{
+    grid-column: span 2;
+    width: 100%;
+    padding: 5px;
+}
+a>p{
+    text-align: right;
+}
+#gender{
+    align-content: center;
+}
+input[type="text"] {
+    width: -webkit-fill-available;
+}
+select, #birthdayDiv>input{
+    width: -webkit-fill-available;
+}
+table{
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+td, th{
+    border: 1px solid #000;
+    padding: 5px;
+}
+td{
+    width: 300px;
+}
+td:first-child{
+    width: 200px;
+}
+td:first-child>span{
+    margin-left: 25px;
+    font-size: 13px;
+}
+span{
+    margin-left: 25px;
+    font-size: larger;
+}
+
+.result{
+    margin-top: 20px;
+}

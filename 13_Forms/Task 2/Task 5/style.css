@@ -1,0 +1,38 @@
+html{
+    background-color: #fbf2e9;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+.question{
+    margin: 10px 0;
+}
+p{
+    height: 16px;
+    margin: 0px;
+    font-weight: bold;
+}
+input{
+    width: -webkit-fill-available;
+    margin: 5px 0;
+}
+.container{
+    max-width: 650px;
+}
+button{
+    margin: 5px 0;
+    width: 100%;
+}
+form>div{
+    display: flex;
+}
+label{
+    display: block;
+    width: 120px;
+    align-self: center;
+}
+.question>p{
+    font-weight: normal;
+}
+.textQuestion{
+    text-decoration: underline;
+}

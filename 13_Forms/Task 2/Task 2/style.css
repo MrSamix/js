@@ -1,0 +1,30 @@
+html{
+    background-color: #fbf2e9;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.container{
+    width: 20%;
+    margin: 10px auto;
+}
+label{
+    display: block;
+    font-weight: bold;
+}
+input{
+    padding: 5px;
+    
+}
+button{
+    grid-column: span 2;
+    width: 100%;
+    padding: 5px;
+}
+a>p{
+    text-align: right;
+}

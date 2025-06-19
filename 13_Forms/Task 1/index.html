@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Forms</title>
+</head>
+<body>
+    <h2>User Login</h2>
+    <form id="loginForm">
+        <label>Email: 
+            <input type="email" name="email" id="email" required>
+        </label>
+        <label>Password: 
+            <input type="password" name="password" id="password"  required minlength="6">
+            <button type="button" id="showPassBtn">Show Password</button>
+        </label>
+        <input type="submit" value="Login">
+    </form>
+    <div id="message"></div>
+    
+    
+    <button id="clearBtn">Clear email from localStorage</button>
+    
+    <script src="main.js"></script>
+</body>
+</html>
