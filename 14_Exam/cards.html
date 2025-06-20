@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cards</title>
+</head>
+<body>
+    <h1>LIBRARY</h1>
+    <nav>
+        <div id="booksBtn">Books</div>
+        <div id="visitorsBtn">Visitors</div>
+        <div class="active" id="cardsBtn">Cards</div>
+        <div id="statisticsBtn">Statistics</div>
+    </nav>
+    <div class="content">
+        <div class="afterNav">
+            <h4>ALL CARDS:</h4>
+            <button id="newCardBtn">New card</button>
+        </div>
+        <hr>
+        <div class="settings">
+            <div class="sort">
+                <p>Sort by:</p>
+                <select name="sort" id="sortSelect">
+                    <option value="id">ID</option>
+                    <option value="name">Visitor</option>
+                    <option value="author">Book</option>
+                    <option value="available">Borrow date</option>
+                    <option value="available">Return date</option>
+                </select>
+                <button>Sort</button>
+            </div>
+            <div class="search">
+                <p>Search:</p>
+                <input type="text" name="searchInput" id="searchInput">
+                <button>Search</button>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Visitor</th>
+                    <th>Book</th>
+                    <th>Borrow date</th>
+                    <th>Return date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>The Great Gatsby</td>
+                    <td>2023-01-15</td>
+                    <td>2023-02-15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>1984</td>
+                    <td>2023-01-20</td>
+                    <td>2023-02-20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>huy Smith</td>
+                    <td>1933</td>
+                    <td>2023-01-22</td>
+                    <td><button class="returnBtn" onclick="returnBook(3)">&#9166;</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>X</p>
+            <form>
+                <h3></h3>
+                <h5>Visitor:</h5>
+                <select name="visitor" id="visitor"></select>
+                <h5>Book:</h5>
+                <select name="book" id="book"></select>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/cards.js"></script>
+</body>
+</html>

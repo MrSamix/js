@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Visitors</title>
+</head>
+<body>
+    <h1>LIBRARY</h1>
+    <nav>
+        <div id="booksBtn">Books</div>
+        <div class="active" id="visitorsBtn">Visitors</div>
+        <div id="cardsBtn">Cards</div>
+        <div id="statisticsBtn">Statistics</div>
+    </nav>
+    <div class="content">
+        <div class="afterNav">
+            <h4>ALL VISITORS:</h4>
+            <button id="newVisitorBtn">New visitor</button>
+        </div>
+        <hr>
+        <div class="settings">
+            <div class="sort">
+                <p>Sort by:</p>
+                <select name="sort" id="sortSelect">
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                </select>
+                <button>Sort</button>
+            </div>
+            <!-- form -->
+            <div class="search">
+                <p>Search:</p>
+                <input type="text" name="searchInput" id="searchInput">
+                <button>Search</button>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>123-456-7890</td>
+                    <td><button class="editBtn" onclick="editVisitor(index)">&#128393;</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>987-654-3210</td>
+                    <td><button class="editBtn">&#9166;</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>X</p>
+            <form>
+                <h3></h3>
+                <h5>Full name:</h5>
+                <input type="text" name="fullname" id="fullname">
+                <h5>Phone number:</h5>
+                <input type="text" name="phone" id="phone">
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/visitors.js"></script>
+</body>
+</html>
