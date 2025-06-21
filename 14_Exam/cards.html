@@ -25,10 +25,10 @@
                 <p>Sort by:</p>
                 <select name="sort" id="sortSelect">
                     <option value="id">ID</option>
-                    <option value="name">Visitor</option>
-                    <option value="author">Book</option>
-                    <option value="available">Borrow date</option>
-                    <option value="available">Return date</option>
+                    <option value="visitor">Visitor</option>
+                    <option value="book">Book</option>
+                    <option value="borrowDate">Borrow date</option>
+                    <option value="returnDate">Return date</option>
                 </select>
                 <button>Sort</button>
             </div>
@@ -49,27 +49,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>The Great Gatsby</td>
-                    <td>2023-01-15</td>
-                    <td>2023-02-15</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>1984</td>
-                    <td>2023-01-20</td>
-                    <td>2023-02-20</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>huy Smith</td>
-                    <td>1933</td>
-                    <td>2023-01-22</td>
-                    <td><button class="returnBtn" onclick="returnBook(3)">&#9166;</button></td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -79,9 +58,9 @@
             <form>
                 <h3></h3>
                 <h5>Visitor:</h5>
-                <select name="visitor" id="visitor"></select>
+                <select name="visitor" id="visitor" required></select>
                 <h5>Book:</h5>
-                <select name="book" id="book"></select>
+                <select name="book" id="book" required></select>
                 <button type="submit">Save</button>
             </form>
         </div>

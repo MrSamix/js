@@ -38,34 +38,62 @@ nav.addEventListener("click", (e) => {
 })
 
 
-searchBtn.addEventListener("click", () => {
-    const searchInput = document.getElementById("searchInput").value;
-    // filteredBooks = books.filter((book) =>
-    //     book.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //     book.author.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //     book.publisher.toLowerCase().includes(searchInput.toLowerCase())
-    // );
-    renderFiltredBooks();
+
+const compareDates = (d1, d2) => {
+    let date1 = Date.parse(d1);
+    let date2 = Date.parse(d2);
+  
+    if (date1 === NaN && date2) {
+        return -1
+    }
+    else if(date1 && date2 === NaN)
+    {
+        return 1;
+    }
+
+
+    if (date1 < date2) {
+        return 1
+    } else if (date1 > date2) {
+        return -1
+    } else {
+        return 0
+    }
+  };
+
+
+searchBtn.addEventListener("click", () => { 
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+    filteredCards = cards.filter((card) => {
+        const visitor = visitors.find(v => v.id === card.visitorId);
+        const book = books.find(b => b.id === card.bookId);
+
+        return (visitor && visitor.fullName.toLowerCase().includes(searchInput)) || 
+               (book && book.name.toLowerCase().includes(searchInput));
+    });
+
+    renderFiltredCards();
 });
 
 sortBtn.addEventListener("click", () => {
     const sortInput = document.getElementById("sortSelect").value;
     if (sortInput === "id") {
-        books.sort((a, b) => a.id - b.id);
+        cards.sort((a, b) => a.id - b.id);
     } 
-    else if (sortInput === "name") {
+    else if (sortInput === "visitor") {
+        visitors.sort((a, b) => a.fullName.localeCompare(b.fullName));
+    }
+    else if (sortInput === "book") {
         books.sort((a, b) => a.name.localeCompare(b.name));
     }
-    else if (sortInput === "author") {
-        books.sort((a, b) => a.author.localeCompare(b.author));
+    else if (sortInput === "borrowDate") {
+        cards.sort((d1, d2) => compareDates(d1.borrowDate, d2.borrowDate));
     }
-    else if (sortInput === "publisher") {
-        books.sort((a, b) => a.publisher.localeCompare(b.publisher));
+    else if (sortInput === "returnDate") {
+        cards.sort((d1, d2) => compareDates(d1.returnDate, d2.returnDate));
     }
-    else if (sortInput === "available") {
-        books.sort((a, b) => a.available.localeCompare(b.available));
-    }
-    renderBooks();
+    renderCards();
 });
 
 function writeToLocalStorage() {
@@ -94,17 +122,15 @@ function renderFiltredCards() {
     const cardsList = document.querySelector('tbody');
     cardsList.innerHTML = '';
 
-    filteredBooks.forEach((book, _) => {
+    filteredCards.forEach((card, _) => {
+        const book = books.find(b => b.id === card.bookId);
+        const visitor = visitors.find(v => v.id === card.visitorId);
         cardsList.innerHTML += `<tr>
-                    <td>${book.id}</td>
+                    <td>${card.id}</td>
+                    <td>${visitor.fullName}</td>
                     <td>${book.name}</td>
-                    <td>${book.author}</td>
-                    <td>${book.year}</td>
-                    <td>${book.publisher}</td>
-                    <td>${book.pages}</td>
-                    <td>${book.available}</td>
-                    <td style="text-align: center;"><button class="editBtn" onclick="editBook(${book.id})">&#128393;</button></td>
-                    <td style="text-align: center;"><button class="removeBtn" onclick="removeBook(${book.id})">&#128465;</button></td>
+                    <td>${new Date(card.borrowDate).toLocaleDateString()}</td>
+                    <td>${card.returnDate === null? '<button class="returnBtn" onclick="returnBook('+card.id+')">&#9166;</button>': new Date(card.returnDate).toLocaleDateString()}</td>
                 </tr>`
     })
 }
@@ -121,19 +147,24 @@ function renderCards() {
                     <td>${card.id}</td>
                     <td>${visitor.fullName}</td>
                     <td>${book.name}</td>
-                    <td>${card.borrowDate}</td>
-                    <td>${card.returnDate === null? '<button class="returnBtn" onclick="returnBook(3)">&#9166;</button>': card.returnDate}</td>
+                    <td>${new Date(card.borrowDate).toLocaleDateString()}</td>
+                    <td>${card.returnDate === null? '<button class="returnBtn" onclick="returnBook('+card.id+')">&#9166;</button>': new Date(card.returnDate).toLocaleDateString()}</td>
                 </tr>`
     })
 }
 
 
 function returnBook(id) {
-    const book = books.find(b => b.id === id);
-    if (book) {
-        book.available++;
-        writeToLocalStorage();
-        renderCards();
+    const card = cards.find(b => b.id === id);
+    if (card) {
+        const book = books.find(b => b.id === card.bookId)
+        if (book) {
+            book.available++;
+            card.returnDate = new Date().toDateString()
+            writeToLocalStorage();
+            renderCards();
+        }
+        
     }
 }
 
@@ -182,33 +213,21 @@ form.addEventListener("submit", (e) => {
     const visitor = formData.get('visitor');
     const book = formData.get('book');
 
-
-    // const bookObj = books.find(b => b.name === book);
-    // if (bookObj && bookObj.available > 0) {
-    //     bookObj.available--;
-    // } else {
-    //     alert("Book is not available.");
-    //     return;
-    // }
-    // const visitorObj = visitors.find(v => v.name === visitor);
-    // if (!visitorObj) {
-    //     alert("Visitor not found.");
-    //     return;
-    // }
-
-    let lastElem = visitors.at(visitors.length-1);
+    let lastElem = cards.at(cards.length-1);
     let id = lastElem ? lastElem.id + 1 : 1;
 
     if (visitor && book) {
         const card = {
             id: id,
-            // visitorId: visitorObj.id,
-            // bookId: bookObj.id,
             visitorId: +visitor,
             bookId: +book,
-            borrowDate: new Date().toLocaleDateString(),
+            borrowDate: new Date().toDateString(),
             returnDate: null
         };
+
+
+        const bookObj = books.find(b => b.id === +book);
+        bookObj.available--;
 
         cards.push(card);
 

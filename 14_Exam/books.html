@@ -52,28 +52,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <td>1</td>
-                    <td>The Great Gatsby</td>
-                    <td>F. Scott Fitzgerald</td>
-                    <td>1925</td>
-                    <td>Scribner</td>
-                    <td>180</td>
-                    <td>5</td>
-                    <td style="text-align: center;"><button class="editBtn" onclick="editBook(1)">&#128393;</button></td>
-                    <td style="text-align: center;"><button class="removeBtn" onclick="removeBook(1)">&#128465;</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>To Kill a Mockingbird</td>
-                    <td>Harper Lee</td>
-                    <td>1960</td>
-                    <td>J.B. Lippincott & Co.</td>
-                    <td>281</td>
-                    <td>3</td>
-                    <td><button class="editBtn" onclick="editBook(2)">&#128393;</button></td>
-                    <td><button class="removeBtn" onclick="removeBook(2)">&#128465;</button></td>
-                </tr> -->
             </tbody>
         </table>
     </div>
@@ -83,17 +61,17 @@
             <form>
                 <h3></h3>
                 <h5>Name:</h5>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
                 <h5>Author:</h5>
-                <input type="text" name="author" id="author">
+                <input type="text" name="author" id="author" required>
                 <h5>Year of Publish:</h5>
-                <input type="number" name="year" id="year">
+                <input type="number" name="year" id="year" required>
                 <h5>Name of Publisher:</h5>
-                <input type="text" name="publisher" id="publisher">
+                <input type="text" name="publisher" id="publisher" required>
                 <h5>Count of Pages:</h5>
-                <input type="number" name="pages" id="pages">
+                <input type="number" name="pages" id="pages" min="0" required>
                 <h5>Available Books:</h5>
-                <input type="number" name="available" id="available">
+                <input type="number" name="available" id="available" min="0" required>
                 <button type="submit">Save</button>
             </form>
         </div>

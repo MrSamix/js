@@ -202,6 +202,12 @@ form.addEventListener("submit", (e) => {
     let lastElem = books.at(books.length-1);
     let id = lastElem ? lastElem.id + 1 : 1;
 
+    if (pages <= 0 || available <= 0) {
+        alert("Count of pages and available must be greater than 0!")
+        return;
+    }
+
+
     if (name && author && year && publisher && pages && available) {
         const book = {
             id: id,

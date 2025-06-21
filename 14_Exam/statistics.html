@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cards</title>
+</head>
+<body>
+    <h1>LIBRARY</h1>
+    <nav>
+        <div id="booksBtn">Books</div>
+        <div id="visitorsBtn">Visitors</div>
+        <div id="cardsBtn">Cards</div>
+        <div class="active" id="statisticsBtn">Statistics</div>
+    </nav>
+    <div class="content">
+        <div class="afterNav">
+            <h4>STATISTICS:</h4>
+        </div>
+        <hr>
+        <h4>TOP 5 BOOKS:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody id="top5books">
+            </tbody>
+        </table>
+        <h4>TOP 5 VISITORS:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Count of books</th>
+                </tr>
+            </thead>
+            <tbody id="top5visitors">
+            </tbody>
+        </table>
+    </div>
+    <script src="js/statistics.js"></script>
+</body>
+</html>
